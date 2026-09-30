@@ -18,6 +18,7 @@ PROVIDER_BASE_URLS = {
     "openrouter": "https://openrouter.ai/api/v1",
     "openai": "https://api.openai.com/v1",
     "deepseek": "https://api.deepseek.com/v1",
+    "fake": "",  # reto opcional: proveedor falso para pruebas, no hace llamadas HTTP
 }
 
 
@@ -41,10 +42,10 @@ def load_settings() -> Settings:
         raise ValueError(f"LLM_PROVIDER desconocido: {provider!r}. Opciones: {options}")
 
     api_key = os.getenv("LLM_API_KEY", "").strip()
-    if not api_key:
+    if not api_key and provider != "fake":
         raise ValueError("Falta LLM_API_KEY. Copia .env.example como .env y agrega tu clave.")
 
-    model = os.getenv("LLM_MODEL", "").strip()
+    model = os.getenv("LLM_MODEL", "").strip() or ("fake-model" if provider == "fake" else "")
     if not model:
         raise ValueError("Falta LLM_MODEL en el archivo .env.")
 

@@ -53,14 +53,45 @@ class LLMClient:
         #   - completion.model                       → model
         #   - completion.choices[0].finish_reason    → finish_reason
         #   - completion.usage.prompt_tokens / completion_tokens
-        raise NotImplementedError("Completa LLMClient.chat")
+        params = {
+            "model": self.settings.model,
+            "messages": messages,
+            "temperature": self.settings.temperature if temperature is None else temperature,
+            "max_tokens": self.settings.max_tokens if max_tokens is None else max_tokens,
+        }
+        if json_mode:
+            params["response_format"] = {"type": "json_object"}
+
+        try:
+            completion = self._client.chat.completions.create(**params)
+        except openai.APIError as exc:
+            raise LLMError(f"{type(exc).__name__}: {exc}") from exc
+
+        choice = completion.choices[0]
+        usage = completion.usage
+        return LLMResponse(
+            text=choice.message.content or "",
+            model=completion.model,
+            finish_reason=choice.finish_reason,
+            prompt_tokens=usage.prompt_tokens if usage else 0,
+            completion_tokens=usage.completion_tokens if usage else 0,
+        )
+
+
+def create_client(settings: Settings):
+    """Elige la implementación del cliente según la configuración (LLM_PROVIDER)."""
+    if settings.provider == "fake":
+        from fake_llm_client import FakeLLMClient
+
+        return FakeLLMClient(settings)
+    return LLMClient(settings)
 
 
 if __name__ == "__main__":
     # Prueba de humo: una sola llamada, sin interfaz ni historial.
     from config import load_settings
 
-    client = LLMClient(load_settings())
+    client = create_client(load_settings())
     response = client.chat(
         [
             {"role": "system", "content": "Responde en una sola frase, en español."},
