@@ -1,0 +1,45 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_MAX_TOKENS': '512'}
+# entradas del usuario:
+Tú: Explica detalladamente la arquitectura Transformer, capa por capa
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Explica detalladamente la arquitectura Transformer, capa por capa
+--------------------------------
+
+Asistente: La arquitectura Transformer se basa en bloques repetidos (encoders y/o decoders) que procesan secuencias mediante mecanismos de atención. Aquí tienes el desglose capa por capa:
+
+1. **Preprocesamiento y Embeddings**:
+   - **Tokenización**: La entrada se divide en tokens.
+   - **Embedding**: Cada token se convierte en un vector denso de dimensión $d_{model}$.
+   - **Positional Encoding**: Como la atención es permutación-invariante, se suman vectores sinusoidales (o aprendidos) a los embeddings para preservar el orden de la secuencia.
+
+2. **Encoder Block** (repetido $N$ veces):
+   - **Multi-Head Self-Attention**:
+     - Los embeddings se proyectan en $h$ cabezas independientes.
+     - Cada cabeza calcula $Q, K, V$ (Query, Key, Value) mediante matrices de peso.
+     - Se calcula la atención: $\text{Attention}(Q,K,V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$.
+     - Los resultados de las cabezas se concatenan y se proyectan nuevamente.
+   - **Add & Norm**: Se aplica un *residual connection* (suma con la entrada de la subcapa) seguido de una *Layer Normalization*.
+   - **Feed-Forward Network (FFN)**:
+     - Dos capas densas con una no linealidad (usualmente ReLU o GELU) en el medio.
+     - Aumenta la dimensión a $d_{ff}$ (típicamente $4 \times d_{model}$) y luego la reduce a $d_{model}$.
+   - **Add & Norm**: Otro residual connection y Layer Normalization.
+
+3. **Decoder Block** (repetido $N$ veces, usado en modelos generativos):
+   - **Masked Multi-Head Self-Attention**:
+     - Similar al self-attention del encoder, pero con una máscara triangular que impide que cada posición atienda a posiciones futuras (garantiza la causalidad).
+   - **Add & Norm**: Residual + Layer Norm.
+   - **Cross-Attention (Encoder-Decoder Attention)**:
+     - Las *Queries* provienen de la salida del decoder anterior.
+     - Las *Keys* y *Values
+
+[finish_reason=length · tokens entrada=273 salida=512]
+
+Tú: 

@@ -1,0 +1,33 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_PROVIDER': 'groq', 'LLM_API_KEY': '***', 'LLM_MODEL': 'openai/gpt-oss-120b'}
+# entradas del usuario:
+Tú: ¿Qué es el positional encoding? Responde en una frase.
+Tú: ¿Cuándo es el primer parcial?
+Tú: /salir
+
+Asistente del Curso de IA  (groq · openai/gpt-oss-120b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] ¿Qué es el positional encoding? Responde en una frase.
+--------------------------------
+
+Asistente: El positional encoding es una representación vectorial que incorpora información sobre la posición relativa o absoluta de cada token en la secuencia, permitiendo que el modelo Transformer distinga el orden de los elementos.
+
+[finish_reason=stop · tokens entrada=316 salida=87]
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] ¿Qué es el positional encoding? Responde en una frase.
+[assistant] El positional encoding es una representación vectorial que incorpora información
+[user] ¿Cuándo es el primer parcial?
+--------------------------------
+
+Asistente: No dispongo de la información sobre la fecha del primer parcial. Te recomiendo consultar el programa del curso, el sitio de Teams o preguntar directamente al profesor.
+
+[finish_reason=stop · tokens entrada=372 salida=68]
+
+Tú: 

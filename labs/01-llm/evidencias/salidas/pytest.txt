@@ -1,0 +1,17 @@
+$ python -m pytest labs/01-llm -v -p no:cacheprovider
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\chapa\AppData\Roaming\Claude\scratch-workspaces\a2a92122-5cd4-4edd-9d22-5fb94860425e\7d114c23-c5ab-4aea-95a8-1d3972c7490b\scratch-2026-09-30-cabb99\.venv\Scripts\python.exe
+rootdir: C:\Users\chapa\AppData\Roaming\Claude\scratch-workspaces\a2a92122-5cd4-4edd-9d22-5fb94860425e\7d114c23-c5ab-4aea-95a8-1d3972c7490b\scratch-2026-09-30-cabb99
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 6 items
+
+labs/01-llm/tests/test_lab01.py::test_build_messages_orden_system_historial_usuario PASSED [ 16%]
+labs/01-llm/tests/test_lab01.py::test_build_messages_sin_historial PASSED [ 33%]
+labs/01-llm/tests/test_lab01.py::test_analyze_question_conocimiento_general PASSED [ 50%]
+labs/01-llm/tests/test_lab01.py::test_analyze_question_informacion_del_curso PASSED [ 66%]
+labs/01-llm/tests/test_lab01.py::test_analyze_question_rechaza_valor_fuera_del_esquema PASSED [ 83%]
+labs/01-llm/tests/test_lab01.py::test_analyze_question_rechaza_json_invalido PASSED [100%]
+
+============================== 6 passed in 1.14s ==============================

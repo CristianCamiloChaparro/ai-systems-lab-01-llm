@@ -1,0 +1,19 @@
+$ python labs/01-llm/structured.py ¿Qué temas entran en el parcial?
+
+Texto crudo del LLM:
+{
+  "tema": "Contenido del examen parcial",
+  "dificultad": "basica",
+  "requiere_documentos_del_curso": true,
+  "respuesta_corta": "No tengo esa información"
+}
+
+Objeto validado:
+{
+  "tema": "Contenido del examen parcial",
+  "dificultad": "basica",
+  "requiere_documentos_del_curso": true,
+  "respuesta_corta": "No tengo esa información"
+}
+
+→ Esta pregunta necesitaría documentos del curso para responderse bien.

@@ -86,6 +86,9 @@ if all(alt.values()):
     run("prueba8_otro_proveedor", [*CHAT, "--debug"],
         "¿Qué es el positional encoding? Responde en una frase.\n¿Cuándo es el primer parcial?\n/salir\n",
         **alt)
+    run("prueba8b_proveedor_fake", [*CHAT, "--debug"],
+        "¿Qué es el positional encoding? Responde en una frase.\n/salir\n",
+        LLM_PROVIDER="fake", LLM_API_KEY="", LLM_MODEL="")
 else:
     print("✘ prueba 8 omitida: define ALT_LLM_PROVIDER / ALT_LLM_API_KEY / ALT_LLM_MODEL en .env")
 

@@ -1,0 +1,14 @@
+$ python labs/01-llm/chatbot.py
+# entradas del usuario:
+Tú: ¿Cuándo es el primer parcial?
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+Asistente: No tengo acceso a la información administrativa del curso, por lo que no puedo indicarte las fechas de los parciales ni de las entregas.
+
+Para obtener esta información, te sugiero consultar directamente al profesor, revisar el programa del curso o buscar las actualizaciones en la plataforma de Teams.
+
+Tú: 

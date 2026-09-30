@@ -1,0 +1,20 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_PROVIDER': 'fake', 'LLM_API_KEY': '', 'LLM_MODEL': ''}
+# entradas del usuario:
+Tú: ¿Qué es el positional encoding? Responde en una frase.
+Tú: /salir
+
+Asistente del Curso de IA  (fake · fake-model)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] ¿Qué es el positional encoding? Responde en una frase.
+--------------------------------
+
+Asistente: (respuesta simulada) Recibí 2 mensajes. Última pregunta: ¿Qué es el positional encoding? Responde en una frase.
+
+[finish_reason=stop · tokens entrada=167 salida=16]
+
+Tú: 

@@ -1,0 +1,25 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_MAX_TOKENS': '150'}
+# entradas del usuario:
+Tú: Explica detalladamente la arquitectura Transformer, capa por capa
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Explica detalladamente la arquitectura Transformer, capa por capa
+--------------------------------
+
+Asistente: Aquí tienes el desglose detallado de la arquitectura Transformer (basada en "Attention is All You Need"):
+
+1. **Tokenización y Embeddings**: La entrada se divide en tokens. Cada token se convierte en un vector de dimensión $d_{model}$ (ej. 512 o 768).
+2. **Positional Encoding**: Como la atención es permutación-invariante, se suman vectores de posición (senos/cosenos o aprendidos) a los embeddings para que el modelo sepa el orden de las palabras.
+3. **Encoder Stack** (N capas, ej. 6):
+   - **Multi-Head Self-Attention**: Calcula $Q
+
+[finish_reason=length · tokens entrada=273 salida=150]
+
+Tú: 

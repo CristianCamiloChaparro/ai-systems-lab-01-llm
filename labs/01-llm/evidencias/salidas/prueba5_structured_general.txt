@@ -1,0 +1,17 @@
+$ python labs/01-llm/structured.py ¿Qué es el mecanismo de atención?
+
+Texto crudo del LLM:
+{
+  "tema": "Mecanismo de atención",
+  "dificultad": "intermedia",
+  "requiere_documentos_del_curso": false,
+  "respuesta_corta": "El mecanismo de atención es un componente fundamental en las arquitecturas de redes neuronales que permite al modelo ponderar dinámicamente la relevancia de diferentes partes de la entrada. Esto facilita la captura de dependencias de largo alcance y contextos complejos, siendo la base de los modelos Transformer."
+}
+
+Objeto validado:
+{
+  "tema": "Mecanismo de atención",
+  "dificultad": "intermedia",
+  "requiere_documentos_del_curso": false,
+  "respuesta_corta": "El mecanismo de atención es un componente fundamental en las arquitecturas de redes neuronales que permite al modelo ponderar dinámicamente la relevancia de diferentes partes de la entrada. Esto facilita la captura de dependencias de largo alcance y contextos complejos, siendo la base de los modelos Transformer."
+}

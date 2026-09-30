@@ -1,0 +1,20 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_TEMPERATURE': '1.2'}
+# entradas del usuario:
+Tú: Propón un nombre para este asistente. Responde solo con el nombre.
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Propón un nombre para este asistente. Responde solo con el nombre.
+--------------------------------
+
+Asistente: Athena
+
+[finish_reason=stop · tokens entrada=278 salida=4]
+
+Tú: 

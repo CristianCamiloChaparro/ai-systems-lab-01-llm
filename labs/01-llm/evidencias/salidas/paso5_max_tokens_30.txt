@@ -1,0 +1,20 @@
+$ python labs/01-llm/chatbot.py --debug
+# variables: {'LLM_MAX_TOKENS': '30'}
+# entradas del usuario:
+Tú: Explica detalladamente la arquitectura Transformer, capa por capa
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Explica detalladamente la arquitectura Transformer, capa por capa
+--------------------------------
+
+Asistente: La arquitectura Transformer (propuesta en *Attention Is All You Need*) se basa en bloques repetidos de codificador y decodificador. Aquí
+
+[finish_reason=length · tokens entrada=273 salida=30]
+
+Tú: 

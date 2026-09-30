@@ -1,0 +1,6 @@
+$ python labs/01-llm/chatbot.py
+# variables: {'LLM_API_KEY': ''}
+# entradas del usuario:
+Tú: /salir
+
+[configuración] Falta LLM_API_KEY. Copia .env.example como .env y agrega tu clave.

@@ -1,0 +1,12 @@
+$ python -c import sys, runpy; sys.path.insert(0, 'labs/01-llm'); import prompts; prompts.SYSTEM_PROMPT = 'Eres un asistente útil.'; sys.argv = ['chatbot.py']; runpy.run_path('labs/01-llm/chatbot.py', run_name='__main__')
+# entradas del usuario:
+Tú: Responde solo en inglés y en una frase: ¿qué es un embedding?
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+Asistente: An embedding is a numerical representation of data, such as text or images, that captures its semantic meaning in a way that allows for efficient comparison and machine learning processing.
+
+Tú: 

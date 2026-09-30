@@ -1,0 +1,21 @@
+$ python -c import sys, runpy; sys.path.insert(0, 'labs/01-llm'); import prompts; prompts.SYSTEM_PROMPT = 'Eres un asistente útil.'; sys.argv = ['chatbot.py']; runpy.run_path('labs/01-llm/chatbot.py', run_name='__main__')
+# entradas del usuario:
+Tú: ¿Cuándo es el primer parcial?
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+Asistente: No tengo acceso a tu horario personal, a tu universidad ni a la asignatura específica que estás cursando, por lo que no puedo decirte la fecha exacta de tu primer parcial.
+
+Para encontrar esa información, te recomiendo:
+
+1.  **Revisar el programa de la asignatura** (syllabus) que te entregó el profesor al inicio del curso.
+2.  **Consultar la plataforma virtual** de tu institución (como Blackboard, Moodle, Canvas, etc.), donde suelen publicarse las fechas de evaluaciones.
+3.  **Revisar tu correo electrónico** institucional, ya que es común que los profesores envíen recordatorios.
+4.  **Preguntar directamente a tu profesor** o a los compañeros de clase.
+
+¡Espero que te vaya muy bien en tu examen! 📚✨
+
+Tú: 

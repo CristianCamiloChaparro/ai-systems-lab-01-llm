@@ -1,0 +1,81 @@
+$ python labs/01-llm/chatbot.py --debug
+# entradas del usuario:
+Tú: Explica qué es el positional encoding
+Tú: Dame un ejemplo de eso
+Tú: /reiniciar
+Tú: Dame un ejemplo de eso
+Tú: /salir
+
+Asistente del Curso de IA  (groq · qwen/qwen3.8-27b)
+Comandos: /reiniciar  /salir
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Explica qué es el positional encoding
+--------------------------------
+
+Asistente: El **positional encoding** (codificación posicional) es un mecanismo que inyecta información sobre el orden de los tokens en la secuencia dentro de la arquitectura Transformer.
+
+**¿Por qué es necesario?**
+La operación de atención auto-atención es **permutación invariante**: si reordenas los tokens de entrada, la salida de la capa de atención cambia solo el orden de las salidas, pero no sus valores internos. Sin información posicional, el modelo no podría distinguir entre "el gato come" y "come el gato".
+
+**¿Cómo funciona?**
+Se suman vectores de posición a los embeddings de los tokens antes de entrar a las capas de atención. Los métodos más comunes son:
+
+1.  **Senos y Cosenos (Original):** Se usan funciones trigonométricas de diferentes frecuencias. Permiten que el modelo generalice a secuencias más largas de las vistas en entrenamiento.
+2.  **Aprendidos (Learned):** Vectores de posición entrenables que el modelo ajusta durante el entrenamiento.
+
+**Ejemplo conceptual:**
+Si el token "gato" está en la posición 0 y "come" en la 1, cada embedding se suma a un vector único que representa esa posición específica. Así, la atención puede calcular pesos basándose no solo en el significado semántico, sino también en la distancia relativa entre las palabras.
+
+[finish_reason=stop · tokens entrada=269 salida=292]
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Explica qué es el positional encoding
+[assistant] El **positional encoding** (codificación posicional) es un mecanismo que inyecta
+[user] Dame un ejemplo de eso
+--------------------------------
+
+Asistente: Imagina la frase: **"El perro corre"**.
+
+1.  **Sin Positional Encoding:**
+    El modelo ve tres embeddings: $E_{\text{el}}$, $E_{\text{perro}}$, $E_{\text{corre}}$.
+    Si la frase fuera **"corre perro el"**, los mismos tres embeddings entrarían en la capa de atención. Como la atención es permutación invariante, el modelo trataría ambos casos como si fueran el mismo conjunto de palabras, perdiendo la gramática y el significado.
+
+2.  **Con Positional Encoding:**
+    A cada embedding se le suma un vector de posición específico:
+    *   Posición 0: $E_{\text{el}} + P_0$
+    *   Posición 1: $E_{\text{perro}} + P_1$
+    *   Posición 2: $E_{\text{corre}} + P_2$
+
+    Ahora, el vector resultante de "perro" en la posición 1 es **diferente** al de "corre" en la posición 2, no solo por su significado, sino por su ubicación.
+
+**Resultado:**
+Cuando la capa de atención calcula las relaciones, puede detectar que "corre" (posición 2) modifica a "perro" (posición 1) porque conoce su orden relativo. Si invirtieras la frase, los vectores serían $E_{\text{corre}}+P_0$, $E_{\text{perro}}+P_1$, etc., generando una representación completamente distinta que el modelo reconocería como una estructura gramatical diferente.
+
+[finish_reason=stop · tokens entrada=579 salida=356]
+
+Tú: (historial borrado)
+
+Tú: 
+--- Mensajes enviados al LLM ---
+[system] Eres el Asistente Inteligente del Curso de Inteligencia Artificial.  Rol y audie
+[user] Dame un ejemplo de eso
+--------------------------------
+
+Asistente: Hola. Para poder darte un ejemplo preciso, necesito saber a qué concepto específico te refieres con "eso".
+
+¿Podrías aclarar si te interesa un ejemplo sobre:
+*   Mecanismo de atención (self-attention).
+*   Tokenización o embeddings.
+*   Posicional encoding.
+*   Otro tema específico del curso.
+
+Quedo a la espera de tu aclaración para ayudarte.
+
+[finish_reason=stop · tokens entrada=267 salida=89]
+
+Tú: 
